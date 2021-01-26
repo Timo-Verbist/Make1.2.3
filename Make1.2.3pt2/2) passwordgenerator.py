@@ -15,6 +15,7 @@ import random, string
 amount = 0
 choice = 0
 
+
 def main():
     while True:
         print("We're going to generate a randow password.")
@@ -34,13 +35,17 @@ def make_choice():
     print("2) Only letters (small and big)")
     print("3) letters + other characters")
     print("4) combination of everything\n")
-    choice = int(input("give your choice (0-4):\n"))
-    print("")
+    try:
+        choice = int(input("give your choice (0-4):\n"))
+    except:
+        print("That's not a valid option!")
+        make_choice()
     if choice == 0:
         quit()
     elif choice != 0 and choice != 1 and choice != 2 and choice != 3 and choice != 4:
         print("That's not a valid option!")
         make_choice()
+    # print("")
 
 
 def get_length():

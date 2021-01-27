@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 """
-
 A re-make of your calculator that conforms to flow control.
 You ask the user for 2 numbers
 You ask the user to enter an operation
@@ -13,21 +12,21 @@ __email__ = "timo.verbist@student.kdg.be"
 __status__ = "finished"
 
 
-# number1 = 0
-# number2 = 0
-
-
 def main():
-    print("We're going to multiplicate, devide, add or subtract two numbers")
+    print("We're going to multiplicate, divide, add or subtract two numbers") # information text
 
+# loop
     while True:
+        # let the user choose an operator.
         sign = str(input('Choose multiplication(*), division(/), addition(+) or subtraction(-)   (q to quit)\n'))
+        # If the user gives an input other than the previous given ones, he'll get a message and start over again.
         if sign != "*" and sign != "/" and sign != "+" and sign != "-" and sign != "q":
             print("not a valid sign!\n")
             main()
         elif sign == "q":
             quit()
 
+        # If the user doesn't give a natural number, he'll get a message and start over again. (same with number2)
         try:
             number1 = int(input('Give number1\n'))
         except:
@@ -40,6 +39,7 @@ def main():
             print("this is not a natural number!\n")
             main()
 
+        # this wil check the input, carry out the right calculation and print out the output.
         if sign == "*":
             outcome = multiplication(number1, number2)
         elif sign == "/":
@@ -51,6 +51,9 @@ def main():
         elif sign == "q":
             quit()
         print("The outcome is", outcome, "\n")
+
+
+# functions:
 
 
 def multiplication(number1, number2):
@@ -69,5 +72,5 @@ def subtraction(number1, number2):
     return number1 - number2
 
 
-if __name__ == '__main__':  # code to execute if called from command-line
+if __name__ == '__main__':  # runs the main function in the script "1) calculator.py"
     main()
